@@ -1,0 +1,496 @@
+
+/* CORES E CONFIGURAÇÕES PRINCIPAIS */
+:root {
+    --rosa-claro: #FFCED8;
+    --rosa-palido: #FFDDDD;
+    --rosa-forte: #FA699E;
+    --rosa-medio: #FF9FC7;
+    --texto: #573344;
+    --texto-secundario: #8d6879;
+    --branco: #fffafd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: var(--texto);
+
+    background:
+        radial-gradient(circle at top left, white, transparent 35%),
+        linear-gradient(135deg, #fff4f6, var(--rosa-palido), #ffeaf1);
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+    width: 100%;
+    max-width: 760px;
+    position: relative;
+}
+
+/* CABEÇALHO */
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.coroa {
+    font-size: 48px;
+    color: var(--rosa-forte);
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: var(--texto-secundario);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 7vw, 52px);
+}
+
+h1 span {
+    color: var(--rosa-forte);
+}
+
+.nome-jogo {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+/* TELAS */
+.tela {
+    background: rgba(255, 250, 252, 0.95);
+    padding: 35px;
+    border-radius: 25px;
+    border: 1px solid rgba(250, 105, 158, 0.2);
+    box-shadow: 0 15px 45px rgba(170, 76, 115, 0.13);
+}
+
+.escondido {
+    display: none !important;
+}
+
+/* TELA INICIAL */
+#tela-inicial {
+    text-align: center;
+}
+
+.castelo {
+    font-size: 75px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+#tela-inicial > p:not(.limite) {
+    color: var(--texto-secundario);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.regras {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.regras div {
+    background: #fff0f4;
+    padding: 13px;
+    border-radius: 12px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.regras strong {
+    display: block;
+    color: var(--rosa-forte);
+    margin-top: 5px;
+}
+
+.limite {
+    font-size: 12px;
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+}
+
+/* BOTÕES */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-principal {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 24px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    background: linear-gradient(120deg, var(--rosa-forte), #ed568d);
+    box-shadow: 0 7px 18px rgba(250, 105, 158, 0.25);
+}
+
+.botao-principal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(250, 105, 158, 0.35);
+}
+
+/* CARREGAMENTO */
+#tela-carregamento {
+    text-align: center;
+    padding: 55px 25px;
+}
+
+.carregando {
+    animation: flutuar 1.2s infinite alternate;
+}
+
+@keyframes flutuar {
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+#tela-carregamento p {
+    color: var(--texto-secundario);
+    margin-top: 10px;
+}
+
+.barra-carregamento {
+    width: 180px;
+    height: 7px;
+    background: var(--rosa-claro);
+    border-radius: 20px;
+    margin: 25px auto 0;
+    overflow: hidden;
+}
+
+.barra-carregamento::after {
+    content: "";
+    display: block;
+    width: 45%;
+    height: 100%;
+    background: var(--rosa-forte);
+    animation: carregar 1s infinite alternate;
+}
+
+@keyframes carregar {
+    to {
+        transform: translateX(120%);
+    }
+}
+
+/* TELA DO JOGO */
+.informacoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#pontuacao {
+    background: #ffe8f0;
+    color: #b94778;
+    padding: 9px 13px;
+    border-radius: 20px;
+}
+
+.barra-progresso {
+    height: 8px;
+    background: #f8dce6;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 18px 0 22px;
+}
+
+#progresso {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--rosa-medio), var(--rosa-forte));
+    transition: width 0.3s;
+}
+
+.detalhes-pergunta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--texto-secundario);
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#pergunta {
+    margin: 18px 0 22px;
+    line-height: 1.4;
+}
+
+/* MODOS DE RESPOSTA */
+.modos-resposta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.modo {
+    flex: 1;
+    padding: 12px 8px;
+    border: 1px solid #f4c5d5;
+    border-radius: 12px;
+    background: white;
+    color: var(--texto-secundario);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.modo.ativo {
+    background: #ffe8f0;
+    color: #a53c6c;
+    border-color: var(--rosa-forte);
+}
+
+/* ALTERNATIVAS */
+.alternativas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.alternativa {
+    min-height: 60px;
+    padding: 13px;
+    text-align: left;
+    border: 1px solid #f1c8d7;
+    border-radius: 13px;
+    color: var(--texto);
+    background: white;
+    font-size: 13px;
+}
+
+.alternativa:hover:not(:disabled) {
+    background: #fff1f5;
+    border-color: var(--rosa-forte);
+}
+
+.alternativa:disabled {
+    cursor: default;
+}
+
+.alternativa.correta {
+    background: #eaf7ef;
+    border-color: #8ac5a8;
+    color: #286348;
+}
+
+.alternativa.incorreta {
+    background: #fff0f2;
+    border-color: #e5a0b0;
+    color: #a33f5b;
+}
+
+/* RESPOSTA DIGITADA */
+#area-digitacao label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.linha-digitacao {
+    display: flex;
+    gap: 10px;
+}
+
+#resposta-digitada {
+    flex: 1;
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid #eac1d0;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--texto);
+}
+
+#resposta-digitada:focus {
+    outline: 2px solid var(--rosa-medio);
+}
+
+/* MENSAGENS */
+.mensagem {
+    padding: 14px;
+    margin-top: 18px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mensagem.sucesso {
+    background: #eaf7ef;
+    color: #286348;
+}
+
+.mensagem.erro {
+    background: #fff0f2;
+    color: #a33f5b;
+}
+
+.mensagem.neutra {
+    background: #f7edf2;
+    color: var(--texto-secundario);
+}
+
+/* BOTÕES INFERIORES */
+.botoes-jogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.botao-texto {
+    background: none;
+    border: none;
+    color: var(--texto-secundario);
+    text-decoration: underline;
+    font-size: 13px;
+    padding: 10px 0;
+}
+
+.botao-texto:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* RESULTADO */
+#tela-final {
+    text-align: center;
+}
+
+#mensagem-final {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.resultado {
+    width: 175px;
+    height: 175px;
+    border: 8px solid #ffe2ec;
+    border-radius: 50%;
+    background: #fff1f6;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultado span,
+.resultado small {
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.resultado strong {
+    font-family: Georgia, serif;
+    font-size: 50px;
+    color: var(--rosa-forte);
+}
+
+.estatisticas {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin: 25px 0;
+}
+
+.estatisticas div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.estatisticas strong {
+    font-size: 22px;
+}
+
+.estatisticas span {
+    font-size: 12px;
+    color: var(--texto-secundario);
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #a77b8e;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 540px) {
+    body {
+        padding: 20px 12px;
+        align-items: flex-start;
+    }
+
+    .tela {
+        padding: 23px 18px;
+    }
+
+    .regras,
+    .alternativas {
+        grid-template-columns: 1fr;
+    }
+
+    .modos-resposta {
+        flex-direction: column;
+    }
+
+    .linha-digitacao {
+        flex-direction: column;
+    }
+
+    .linha-digitacao button {
+        width: 100%;
+    }
+
+    .botoes-jogo {
+        flex-direction: column-reverse;
+    }
+
+    .botoes-jogo button {
+        width: 100%;
+    }
+
+    .estatisticas {
+        gap: 25px;
+    }
+}

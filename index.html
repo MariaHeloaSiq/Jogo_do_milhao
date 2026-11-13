@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reino do Saber - O Desafio da Coroa!!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <div class="coroa">♛</div>
+            <p class="subtitulo">UM DESAFIO DE CONHECIMENTO</p>
+            <h1>Reino do <span>Saber</span></h1>
+            <p class="nome-jogo">O Desafio da Coroa</p>
+        </header>
+
+        <!-- TELA INICIAL -->
+        <section id="tela-inicial" class="tela">
+            <div class="castelo">🏰</div>
+
+            <h2>Bem-vindo ao Reino!</h2>
+
+            <p>
+                Prepare seus conhecimentos, escolha suas respostas
+                e descubra quantos pontos você consegue conquistar!
+            </p>
+
+            <div class="regras">
+                <div>Resposta digitada correta <strong>+3 pontos</strong></div>
+                <div>Alternativa correta <strong>+1 ponto</strong></div>
+                <div>Resposta incorreta <strong>-2 pontos</strong></div>
+                <div>Pergunta pulada <strong>0 pontos</strong></div>
+            </div>
+
+            <p class="limite">34 perguntas • Pontuação máxima: 100 pontos</p>
+
+            <button id="botao-iniciar" class="botao-principal">
+                Começar o desafio →
+            </button>
+        </section>
+
+        <!-- TELA DE CARREGAMENTO -->
+        <section id="tela-carregamento" class="tela escondido">
+            <div class="coroa carregando">♛</div>
+            <h2>Preparando o reino...</h2>
+            <p>Estamos buscando suas perguntas. Aguarde!</p>
+            <div class="barra-carregamento"></div>
+        </section>
+
+        <!-- TELA DO JOGO -->
+        <section id="tela-jogo" class="tela escondido">
+
+            <div class="informacoes">
+                <span id="numero-pergunta">Pergunta 1 de 34</span>
+                <span id="pontuacao">0 pontos</span>
+            </div>
+
+            <div class="barra-progresso">
+                <div id="progresso"></div>
+            </div>
+
+            <div class="detalhes-pergunta">
+                <span id="categoria"></span>
+                <span id="dificuldade"></span>
+            </div>
+
+            <h2 id="pergunta">Pergunta aparecerá aqui.</h2>
+
+            <div class="modos-resposta">
+                <button id="modo-alternativa" class="modo ativo" type="button">
+                    Escolher alternativa (+1)
+                </button>
+                <button id="modo-digitacao" class="modo" type="button">
+                    Digitar resposta (+3)
+                </button>
+            </div>
+
+            <div id="alternativas" class="alternativas"></div>
+
+            <form id="area-digitacao" class="escondido">
+                <label for="resposta-digitada">Digite sua resposta:</label>
+                <div class="linha-digitacao">
+                    <input
+                        type="text"
+                        id="resposta-digitada"
+                        placeholder="Sua resposta..."
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="botao-principal">
+                        Responder
+                    </button>
+                </div>
+            </form>
+
+            <div id="mensagem" class="mensagem escondido" role="status"></div>
+
+            <div class="botoes-jogo">
+                <button id="botao-pular" class="botao-texto" type="button">
+                    Pular pergunta
+                </button>
+
+                <button id="botao-proxima" class="botao-principal escondido" type="button">
+                    Próxima pergunta →
+                </button>
+            </div>
+
+        </section>
+
+        <!-- TELA FINAL -->
+        <section id="tela-final" class="tela escondido">
+
+            <div class="coroa">♛</div>
+
+            <p class="subtitulo">FIM DO DESAFIO</p>
+
+            <h2 id="titulo-final">Desafio concluído!</h2>
+
+            <p id="mensagem-final"></p>
+
+            <div class="resultado">
+                <span>Sua pontuação</span>
+                <strong id="pontuacao-final">0</strong>
+                <small>de 100 pontos</small>
+            </div>
+
+            <div class="estatisticas">
+                <div>
+                    <strong id="acertos">0</strong>
+                    <span>Acertos</span>
+                </div>
+
+                <div>
+                    <strong id="erros">0</strong>
+                    <span>Erros</span>
+                </div>
+
+                <div>
+                    <strong id="puladas">0</strong>
+                    <span>Puladas</span>
+                </div>
+            </div>
+
+            <button id="botao-reiniciar" class="botao-principal">
+                Jogar novamente ↻
+            </button>
+
+        </section>
+
+        <footer>
+            <p>✧ Feito para mentes curiosas ✧</p>
+            <p>Reino do Saber</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
